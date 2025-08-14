@@ -1,45 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Metro Ticket</title>
-    <link rel="manifest" href="/manifest.json">
+    <title>Metro Ticket Payment</title>
+
+    <!-- PWA Meta -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#e31e24">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
             background: #f4f4f4;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            min-height: 100vh;
         }
+
         .header {
             background: #e31e24;
-            color: white;
-            font-size: 22px;
-            font-weight: bold;
+            padding: 15px;
             text-align: center;
-            width: 100%;
-            padding: 15px 0;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
         }
+
         .container {
+            max-width: 400px;
+            margin: 20px auto;
             background: white;
-            margin: 20px;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
-            max-width: 400px;
-            width: 100%;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
         }
+
         .row {
             display: flex;
             justify-content: space-between;
             margin-bottom: 10px;
         }
-        .label { font-weight: bold; }
+
+        .label {
+            font-weight: bold;
+        }
+
         .button {
             display: block;
             width: 100%;
@@ -51,13 +58,18 @@
             font-size: 16px;
             cursor: pointer;
             text-align: center;
-            margin-top: 20px;
+            text-decoration: none;
         }
-        .button:hover { background: #1da851; }
+
+        .button:hover {
+            background: #1da851;
+        }
     </style>
 </head>
+
 <body>
-    <div class="header">Metro Ticket</div>
+
+    <div class="header">Metro Ticket Payment</div>
 
     <div class="container">
         <div class="row">
@@ -77,21 +89,23 @@
             <div>Kashmere Gate</div>
         </div>
 
-        <!-- Button to external payment page -->
-        <a href="https://example-payment.com" target="_blank" class="button">
-            Buy Ticket
+        <!-- Pay Now Button -->
+        <a href="https://example.com/payment" class="button">
+            Pay Now
         </a>
     </div>
 
-    <!-- PWA Service Worker -->
+    <!-- Service Worker Registration -->
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
+                navigator.serviceWorker.register('sw.js')
                     .then(reg => console.log('Service Worker registered', reg))
                     .catch(err => console.log('Service Worker registration failed', err));
             });
         }
     </script>
+
 </body>
+
 </html>
