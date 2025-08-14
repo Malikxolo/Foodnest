@@ -1,48 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Metro Ticket</title>
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="/manifest.json">
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
             background: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
         }
-
         .header {
             background: #e31e24;
-            padding: 15px;
-            text-align: center;
             color: white;
-            font-size: 18px;
+            font-size: 22px;
             font-weight: bold;
+            text-align: center;
+            width: 100%;
+            padding: 15px 0;
         }
-
         .container {
-            max-width: 400px;
-            margin: 20px auto;
             background: white;
+            margin: 20px;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 100%;
         }
-
         .row {
             display: flex;
             justify-content: space-between;
             margin-bottom: 10px;
         }
-
-        .label {
-            font-weight: bold;
+        .label { font-weight: bold; }
+        .button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: #25D366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 20px;
         }
+        .button:hover { background: #1da851; }
     </style>
 </head>
-
 <body>
     <div class="header">Metro Ticket</div>
 
@@ -63,18 +76,22 @@
             <div class="label">To:</div>
             <div>Kashmere Gate</div>
         </div>
+
+        <!-- Button to external payment page -->
+        <a href="https://example-payment.com" target="_blank" class="button">
+            Buy Ticket
+        </a>
     </div>
 
-    <!-- Service Worker Registration for PWA -->
+    <!-- PWA Service Worker -->
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('sw.js')
+                navigator.serviceWorker.register('/sw.js')
                     .then(reg => console.log('Service Worker registered', reg))
                     .catch(err => console.log('Service Worker registration failed', err));
             });
         }
     </script>
 </body>
-
 </html>
