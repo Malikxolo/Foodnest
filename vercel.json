@@ -1,11 +1,19 @@
 {
-  "headers": [
+  "version": 2,
+  "builds": [
     {
-      "source": "/(.*)",
-      "headers": [
-        { "key": "X-Frame-Options", "value": "ALLOW-FROM https://web.whatsapp.com" },
-        { "key": "Content-Security-Policy", "value": "frame-ancestors 'self' https://web.whatsapp.com;" }
-      ]
+      "src": "index.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "headers": {
+        "Content-Security-Policy": "frame-ancestors 'self' https://web.whatsapp.com;",
+        "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload"
+      },
+      "dest": "/index.html"
     }
   ]
 }
