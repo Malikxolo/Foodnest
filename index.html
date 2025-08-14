@@ -4,14 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Metro Ticket Payment</title>
-
-    <!-- PWA Meta -->
+    <title>Metro Ticket</title>
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#e31e24">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-
     <style>
         body {
             margin: 0;
@@ -46,30 +40,11 @@
         .label {
             font-weight: bold;
         }
-
-        .button {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            background: #25D366;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-        }
-
-        .button:hover {
-            background: #1da851;
-        }
     </style>
 </head>
 
 <body>
-
-    <div class="header">Metro Ticket Payment</div>
+    <div class="header">Metro Ticket</div>
 
     <div class="container">
         <div class="row">
@@ -88,14 +63,9 @@
             <div class="label">To:</div>
             <div>Kashmere Gate</div>
         </div>
-
-        <!-- Pay Now Button -->
-        <a href="https://example.com/payment" class="button">
-            Pay Now
-        </a>
     </div>
 
-    <!-- Service Worker Registration -->
+    <!-- Service Worker Registration for PWA -->
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
@@ -105,7 +75,6 @@
             });
         }
     </script>
-
 </body>
 
 </html>
