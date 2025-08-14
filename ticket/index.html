@@ -1,1 +1,112 @@
-cvdrvv
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metro Ticket Payment</title>
+
+    <!-- PWA Meta -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#e31e24">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+        }
+
+        .header {
+            background: #e31e24;
+            padding: 15px;
+            text-align: center;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .label {
+            font-weight: bold;
+        }
+
+        .button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: #25D366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background: #1da851;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">Ticket Payment</div>
+
+    <div class="container">
+        <div class="row">
+            <div class="label">Ticket ID:</div>
+            <div>DMRC123456</div>
+        </div>
+        <div class="row">
+            <div class="label">Amount:</div>
+            <div>₹50</div>
+        </div>
+        <div class="row">
+            <div class="label">From:</div>
+            <div>Rajiv Chowk</div>
+        </div>
+        <div class="row">
+            <div class="label">To:</div>
+            <div>Okhla</div>
+        </div>
+
+        <!-- Pay Now Button -->
+        <a href="about:blank" class="button" target="_blank">
+            Pay Now
+        </a>
+    </div>
+
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(reg => console.log('Service Worker registered', reg))
+                    .catch(err => console.log('Service Worker registration failed', err));
+            });
+        }
+    </script>
+
+</body>
+
+</html>
+
